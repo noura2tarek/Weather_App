@@ -16,10 +16,10 @@ class _WeatherPageState extends State<WeatherPage> {
   //fetch weather
   _fetchWeather() async {
     //get current city
-    //String? cityName = await WeatherServices().getCurrentCity();
+    String? cityName = await WeatherServices().getCurrentCity();
     //get weather for city
     try {
-      final weatherr = await WeatherServices().getWeather('egypt');
+      final weatherr = await WeatherServices().getWeather(cityName);
       setState(() {
         _weather = weatherr;
       });
@@ -61,7 +61,6 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -71,17 +70,16 @@ class _WeatherPageState extends State<WeatherPage> {
               Icon(
                 Icons.location_on,
                 size: 26.0,
-                color: Colors.grey[500], //600
+                color: Colors.grey[600],
               ),
               const SizedBox(
-                height: 6.0,
+                height: 7.0,
               ),
               //city name
               Text(
-                _weather?.cityName ?? "loading city...",
+                _weather?.cityName ?? "Loading city...",
                 style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[600],
                     ),
               ),
 
@@ -95,7 +93,7 @@ class _WeatherPageState extends State<WeatherPage> {
               Text(
                 '${_weather?.description}',
                 style: TextStyle(
-                  color: Colors.grey[500],
+                  color: Colors.grey[600],
                   fontSize: 20.0,
                 ),
               ),
@@ -106,7 +104,7 @@ class _WeatherPageState extends State<WeatherPage> {
               Text(
                 '${_weather?.temperature.round()} °C',
                 style: TextStyle(
-                  color: Colors.grey[500], //black87
+                  color: Colors.grey[600],
                   fontSize: 40.0,
                   fontWeight: FontWeight.bold,
                 ),

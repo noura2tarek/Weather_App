@@ -1,11 +1,13 @@
 # weather_app
 
-A new Flutter project.
+Weather App project fetch the weather data of the city name of the user device.
+Using the Weather API and http package.
+The logic is done using stateful widget.
+The application uses permissions to get the location of the user phone and get the resulting weather.
+Using geolocator and geocoding packages.
+Check https://lottiefiles.com/ for weather animations.
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)

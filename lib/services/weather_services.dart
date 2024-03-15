@@ -8,8 +8,7 @@ import 'package:http/http.dart' as http;
 class WeatherServices {
   Future<Weather?> getWeather(String? cityName) async {
     var url = Uri.parse(
-        "${AppConstants.BASE_URL}?q=$cityName&appid=${AppConstants.OPEN_WEATHER_API_KEY}");
-    //https://api.openweathermap.org/data/2.5/weather?q=egypt&appid=91487552a07a8cf8e5e292304133c59b
+        "${AppConstants.BASE_URL}${AppConstants.PATH}?key=${AppConstants.OPEN_WEATHER_API_KEY}&q=$cityName");
 
     var response = await http.get(url);
     if (response.statusCode == 200) {
@@ -22,7 +21,10 @@ class WeatherServices {
     return null;
   }
 
-  // get current city method using geo locator and geo coding
+//https://api.openweathermap.org/data/2.5/weather?q=egypt&appid=91487552a07a8cf8e5e292304133c59b
+// another api: https://api.weatherapi.com/v1/current.json?key=2a27136913d341d7846204658241303&q=egypt
+
+ // get current city method using geo locator and geo coding packages
   Future<String> getCurrentCity() async {
     //get permission from user
     LocationPermission permission = await Geolocator.checkPermission();

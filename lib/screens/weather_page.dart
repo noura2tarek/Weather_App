@@ -69,18 +69,38 @@ class _WeatherPageState extends State<WeatherPage> {
             children: [
               Icon(
                 Icons.location_on,
-                size: 26.0,
+                size: 29.0,
                 color: Colors.grey[600],
               ),
               const SizedBox(
-                height: 7.0,
+                height: 12.0,
               ),
               //city name
-              Text(
-                _weather?.cityName ?? "Loading city...",
-                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                      color: Colors.grey[600],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                     _weather?.cityName ??"Loading city...",
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                          color: Colors.grey[600],
+                          fontSize: 33.0,
+                        ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      '_',
+                      style: TextStyle(color: Colors.grey[600], fontSize: 30.0),
                     ),
+                  ),
+                  Text(
+                    _weather?.countryName ??" country..",
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                          color: Colors.grey[600],
+                          fontSize: 33.0,
+                        ),
+                  ),
+                ],
               ),
 
               //Animation
@@ -90,13 +110,13 @@ class _WeatherPageState extends State<WeatherPage> {
                 height: 400.0,
               ),
               //description
-              Text(
-                '${_weather?.description}',
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 20.0,
-                ),
-              ),
+              // Text(
+              //   '${_weather?.description}',
+              //   style: TextStyle(
+              //     color: Colors.grey[600],
+              //     fontSize: 20.0,
+              //   ),
+              // ),
               const SizedBox(
                 height: 5.0,
               ),
